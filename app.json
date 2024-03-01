@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "isp",
+    "name": "ISP WIFI",
     "slug": "isp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,20 +11,44 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "platforms": ["android"],
+    "staging": {
+      "apiEndpoint": "https://isp-backend.onrender.com",
+      "featureFlags": {
+        "enableNewFeature": true
+      }
+    },
+    "production": {
+      "apiEndpoint": "https://isp-backend.onrender.com",
+      "featureFlags": {
+        "enableNewFeature": false
+      }
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
+  
     "android": {
+      "config": {
+        "googleSignIn": {
+          "apiKey": ""
+        }
+      },
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.developershakil2.isp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+   
+    "extra": {
+      "eas": {
+        "projectId": "1d39edb2-dbc9-4b1c-b331-ec1d10506e8c"
+      }
     }
   }
 }
+

@@ -1,22 +1,42 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from "react-native";
-
+import React, { useState, useContext , useEffect} from "react";
+import { View, Text, StyleSheet,ActivityIndicator, TouchableOpacity, Image, TextInput } from "react-native";
+import { ContextApi } from "../utilities";
+import Message from "../components/Message";
+import AsyncStorage from '@react-native-async-storage/async-storage'
 export default function Login({ navigation }) {
+  const {LoginAccount, isLoad} = useContext(ContextApi);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
 
-  const logi =()=>{
 
-    navigation.reset({index:0, routes:[{name:"dashboard"}]})
-    if(username.toLowerCase() == "shakil" && password == 1234){
-    
-    }else{
-        alert("user name or password incorrect")
-    }
+  const logi =async()=>{
+
+  await LoginAccount(username, password, navigation)
+
   }
+
+  useEffect(()=>{
+     const userCheck = async ()=>{
+      const us = await AsyncStorage.getItem('user');
+      const cuser = JSON.parse(us) 
+       if(cuser?.userId){
+        navigation.reset({index:0, routes:[{name:'dashboard'}]})
+       }else{
+        return ''
+       }
+     }
+
+     userCheck()
+  },[])
   return (
+    <>
+   {
+      isLoad == true? <View style={{width:'100%', height:'100%', justifyContent:'center', alignItems:'center'}}>
+          <ActivityIndicator size='large' color="green"/>
+      </View>:
     <View style={styles.container}>
+    <Message/>
       <View>
         <Image
           source={require("../assets/images/logo.jpg")}
@@ -58,7 +78,10 @@ export default function Login({ navigation }) {
         </View>
       </View>
     </View>
-  );
+    }
+    </>
+   
+  )
 }
 
 const styles = StyleSheet.create({

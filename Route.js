@@ -9,14 +9,13 @@ import Dashboard from "./screens/Dashboard";
 import Profile from "./screens/Profile";
 import SuperUser from "./screens/SuperUser";
 function Logo(){
-
     return(
         <View style={{flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
         <Image source={require("./assets/images/logo.jpg")}
         style={{width:30, height:30, borderRadius:20, objectFit:"cover"}}
         resizeMode="contain"
         />
-        <Text style={{marginLeft:4, fontWeight:"bold", fontSize:18}}>Oishi Cable Network</Text>
+        <Text style={{marginLeft:4, fontWeight:"bold", fontSize:18}}>ISP WIFI</Text>
         </View>
     )
 }
