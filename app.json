@@ -13,13 +13,13 @@
     },
     "platforms": ["android"],
     "staging": {
-      "apiEndpoint": "https://isp-backend.onrender.com",
+      "apiEndpoint": "",
       "featureFlags": {
         "enableNewFeature": true
       }
     },
     "production": {
-      "apiEndpoint": "https://isp-backend.onrender.com",
+      "apiEndpoint": "",
       "featureFlags": {
         "enableNewFeature": false
       }
