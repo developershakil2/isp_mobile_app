@@ -5,7 +5,7 @@ export const ContextApi = createContext();
 
 
 export const ContextComponent = ({children})=>{
-  const endpoint = 'https://isp-backend.onrender.com'
+  const endpoint = ''
 
   const [isLoad, setIsLoad] = useState(false);
   const [isResponse, setIsResponse] = useState(false);
